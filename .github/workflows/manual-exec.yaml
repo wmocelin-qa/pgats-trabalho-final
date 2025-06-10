@@ -26,4 +26,4 @@ jobs:
         run: npm install -g mocha
 
       - name: Rodando os testes
-        run: npx mocha trabalho-final.js
+        run: npx mocha testes/trabalho-final.js
