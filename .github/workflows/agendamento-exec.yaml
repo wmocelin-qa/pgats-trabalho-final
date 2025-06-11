@@ -1,0 +1,30 @@
+name: "Execução Agendada - Final Test"
+
+on:
+  schedule:
+    - cron: '0 6 * * 0'
+
+jobs:
+  testes:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Instala Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+
+      - name: Instalando Yarn
+        run: npm install -g yarn
+
+      - name: Instalando dependências
+        run: yarn
+
+      - name: Instalando o mocha
+        run: npm install -g mocha
+
+      - name: Rodando os testes
+        run: npx mocha testes/trabalho-final.js
